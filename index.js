@@ -11,7 +11,7 @@ const sequelize = new Sequelize('database', 'username', 'passwored', {
 });
 
 const account = sequelize.define('account', {
-    id: {
+    id_account: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
@@ -23,37 +23,27 @@ const account = sequelize.define('account', {
     password: {
         type: Sequelize.STRING,
         allowNull: false
-    },
-    level: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        defaultValue: "user"
     }
 });
 
 const chord = sequelize.define('chord', {
-    id: {
+    id_chord: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
-    songname: {
+    chordname: {
         type: Sequelize.STRING,
         allowNull: false,
     },
     datachord: {
         type: Sequelize.STRING,
         allowNull: false
-    },
-    level: {
-        type: Sequelize.STRING,
-        allowNull: true,
-        defaultValue: "user"
     }
 });
 
 const shop = sequelize.define('shop', {
-    id: {
+    id_guitar: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
@@ -74,12 +64,12 @@ const list = sequelize.define('list', {
         autoIncrement: true,
         primaryKey: true
     },
-    id: {
+    id_account: {
         type: Sequelize.INTEGER,
         allowNull: false
     },
-    guitarname: {
-        type: Sequelize.STRING,
+    id_guitar: {
+        type: Sequelize.INTEGER,
         allowNull: false
     },
     price: {
@@ -99,7 +89,7 @@ app.get('/accounts', (req,res) => {
     });
 });
 
-app.get('/accounts/:id', (req,res) => {
+app.get('/accounts/:id_account', (req,res) => {
     account.findByPk(req.params.id).then(account => {
         if (!account) {
             res.status(404).send('Account not found');
@@ -119,7 +109,7 @@ app.post('/accounts', (req,res) => {
     });
 });
 
-app.put('/accounts/:id', (req,res) => {
+app.put('/accounts/:id_account', (req,res) => {
     account.findByPk(req.params.id).then(account => {
         if (!account) {
             res.status(404).send('Account not found');
@@ -135,7 +125,7 @@ app.put('/accounts/:id', (req,res) => {
     });
 });
 
-app.delete('/accounts/:id', (req,res) => {
+app.delete('/accounts/:id_account', (req,res) => {
     account.findByPk(req.params.id).then(account => {
         if (!account) {
             res.status(404).send('Account not found');
@@ -160,7 +150,7 @@ app.get('/chords', (req,res) => {
     });
 });
 
-app.get('/chords/:id', (req,res) => {
+app.get('/chords/:id_chord', (req,res) => {
     chord.findByPk(req.params.id).then(chord => {
         if (!chord) {
             res.status(404).send('Chord not fount');
@@ -180,7 +170,7 @@ app.post('/chords', (req,res) => {
     });
 })
 
-app.put('/chords/:id', (req,res) => {
+app.put('/chords/:id_chord', (req,res) => {
     chord.findByPk(req.params.id).then(chord => {
         if (!chord) {
             res.status(404).send('Chord not fount');
@@ -196,7 +186,7 @@ app.put('/chords/:id', (req,res) => {
     });
 });
 
-app.delete('/chords/:id', (req,res) => {
+app.delete('/chords/:id_chord', (req,res) => {
     chord.findByPk(req.params.id).then(chord => {
         if (!chord) {
             res.status(404).send('Chord not fount');
@@ -221,7 +211,7 @@ app.get('/shops', (req,res) => {
     });
 });
 
-app.get('/shops/:id', (req,res) => {
+app.get('/shops/:id_guitar', (req,res) => {
     shop.findByPk(req.params.id).then(shop => {
         if (!shop) {
             res.status(404).send('Shop not fount');
@@ -241,7 +231,7 @@ app.post('/shops', (req,res) => {
     });
 })
 
-app.put('/shops/:id', (req,res) => {
+app.put('/shops/:id_guitar', (req,res) => {
     shop.findByPk(req.params.id).then(shop => {
         if (!shop) {
             res.status(404).send('Shop not fount');
@@ -257,7 +247,7 @@ app.put('/shops/:id', (req,res) => {
     });
 });
 
-app.delete('/shops/:id', (req,res) => {
+app.delete('/shops/:id_guitar', (req,res) => {
     shop.findByPk(req.params.id).then(shop => {
         if (!shop) {
             res.status(404).send('Shop not fount');
@@ -282,7 +272,7 @@ app.get('/lists', (req,res) => {
     });
 });
 
-app.get('/lists/:id', (req,res) => {
+app.get('/lists/:list', (req,res) => {
     list.findByPk(req.params.id).then(list => {
         if (!list) {
             res.status(404).send('List not fount');
@@ -302,7 +292,7 @@ app.post('/lists', (req,res) => {
     });
 })
 
-app.put('/lists/:id', (req,res) => {
+app.put('/lists/:list', (req,res) => {
     list.findByPk(req.params.id).then(list => {
         if (!list) {
             res.status(404).send('List not fount');
@@ -318,7 +308,7 @@ app.put('/lists/:id', (req,res) => {
     });
 });
 
-app.delete('/lists/:id', (req,res) => {
+app.delete('/lists/:list', (req,res) => {
     list.findByPk(req.params.id).then(list => {
         if (!list) {
             res.status(404).send('list not fount');
