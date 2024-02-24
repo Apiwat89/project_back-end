@@ -23,6 +23,11 @@ const account = sequelize.define('account', {
     password: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    level: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: "user"
     }
 });
 
@@ -47,6 +52,10 @@ const shop = sequelize.define('shop', {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
+    },
+    guitarURL: {
+        type: Sequelize.STRING,
+        allowNull: false
     },
     guitarname: {
         type: Sequelize.STRING,
