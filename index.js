@@ -64,6 +64,10 @@ const shop = sequelize.define('shop', {
     price: {
         type: Sequelize.INTEGER,
         allowNull: false
+    },
+    detail: {
+        type: Sequelize.TEXT,
+        allowNull: false
     }
 });
 
