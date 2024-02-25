@@ -99,7 +99,7 @@ app.get('/accounts', (req,res) => {
 });
 
 app.get('/accounts/:id_account', (req,res) => {
-    account.findByPk(req.params.id).then(account => {
+    account.findByPk(req.params.id_account).then(account => {
         if (!account) {
             res.status(404).send('Account not found');
         } else {
@@ -119,7 +119,7 @@ app.post('/accounts', (req,res) => {
 });
 
 app.put('/accounts/:id_account', (req,res) => {
-    account.findByPk(req.params.id).then(account => {
+    account.findByPk(req.params.id_account).then(account => {
         if (!account) {
             res.status(404).send('Account not found');
         } else {
@@ -135,7 +135,7 @@ app.put('/accounts/:id_account', (req,res) => {
 });
 
 app.delete('/accounts/:id_account', (req,res) => {
-    account.findByPk(req.params.id).then(account => {
+    account.findByPk(req.params.id_account).then(account => {
         if (!account) {
             res.status(404).send('Account not found');
         } else {
@@ -160,7 +160,7 @@ app.get('/chords', (req,res) => {
 });
 
 app.get('/chords/:id_chord', (req,res) => {
-    chord.findByPk(req.params.id).then(chord => {
+    chord.findByPk(req.params.id_chord).then(chord => {
         if (!chord) {
             res.status(404).send('Chord not fount');
         } else {
@@ -180,7 +180,7 @@ app.post('/chords', (req,res) => {
 })
 
 app.put('/chords/:id_chord', (req,res) => {
-    chord.findByPk(req.params.id).then(chord => {
+    chord.findByPk(req.params.id_chord).then(chord => {
         if (!chord) {
             res.status(404).send('Chord not fount');
         } else {
@@ -196,7 +196,7 @@ app.put('/chords/:id_chord', (req,res) => {
 });
 
 app.delete('/chords/:id_chord', (req,res) => {
-    chord.findByPk(req.params.id).then(chord => {
+    chord.findByPk(req.params.id_chord).then(chord => {
         if (!chord) {
             res.status(404).send('Chord not fount');
         } else {
@@ -221,7 +221,7 @@ app.get('/shops', (req,res) => {
 });
 
 app.get('/shops/:id_guitar', (req,res) => {
-    shop.findByPk(req.params.id).then(shop => {
+    shop.findByPk(req.params.id_guitar).then(shop => {
         if (!shop) {
             res.status(404).send('Shop not fount');
         } else {
@@ -241,7 +241,7 @@ app.post('/shops', (req,res) => {
 })
 
 app.put('/shops/:id_guitar', (req,res) => {
-    shop.findByPk(req.params.id).then(shop => {
+    shop.findByPk(req.params.id_guitar).then(shop => {
         if (!shop) {
             res.status(404).send('Shop not fount');
         } else {
@@ -257,7 +257,7 @@ app.put('/shops/:id_guitar', (req,res) => {
 });
 
 app.delete('/shops/:id_guitar', (req,res) => {
-    shop.findByPk(req.params.id).then(shop => {
+    shop.findByPk(req.params.id_guitar).then(shop => {
         if (!shop) {
             res.status(404).send('Shop not fount');
         } else {
@@ -282,7 +282,7 @@ app.get('/lists', (req,res) => {
 });
 
 app.get('/lists/:list', (req,res) => {
-    list.findByPk(req.params.id).then(list => {
+    list.findByPk(req.params.list).then(list => {
         if (!list) {
             res.status(404).send('List not fount');
         } else {
@@ -302,7 +302,7 @@ app.post('/lists', (req,res) => {
 })
 
 app.put('/lists/:list', (req,res) => {
-    list.findByPk(req.params.id).then(list => {
+    list.findByPk(req.params.list).then(list => {
         if (!list) {
             res.status(404).send('List not fount');
         } else {
@@ -318,7 +318,7 @@ app.put('/lists/:list', (req,res) => {
 });
 
 app.delete('/lists/:list', (req,res) => {
-    list.findByPk(req.params.id).then(list => {
+    list.findByPk(req.params.list).then(list => {
         if (!list) {
             res.status(404).send('list not fount');
         } else {
